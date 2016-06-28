@@ -8,7 +8,7 @@ resources:
   inst1:
     type: OS::Nova::Server
     properties:
-      key_name: /home/osboxes/vinod/nova_key
+      key_name: nova_key
       flavor: m1.amphora
       image: ub
       networks:
