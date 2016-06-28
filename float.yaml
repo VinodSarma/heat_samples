@@ -1,11 +1,11 @@
 heat_template_version: 2013-05-23
 resources:
-
   floating_ip:
     type: OS::Nova::FloatingIP
     properties:
       pool: public
-  inst1: 
+
+  inst1:
     type: OS::Nova::Server
     properties:
       key_name: /home/osboxes/vinod/nova_key
