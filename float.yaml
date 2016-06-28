@@ -4,7 +4,7 @@ resources:
     type: OS::Nova::FloatingIP
     properties:
       pool: public
-  inst1:
+  inst1: 
     type: OS::Nova::Server
     properties:
       key_name: /home/osboxes/vinod/nova_key
