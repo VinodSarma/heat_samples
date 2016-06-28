@@ -20,6 +20,5 @@ resources:
     type: OS::Cinder::Volume
     properties:
       image: 'ub'
-#      image: 'OpenWRT'
       size: 4
 
