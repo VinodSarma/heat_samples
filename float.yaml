@@ -8,6 +8,7 @@ resources:
   inst1:
     type: OS::Nova::Server
     properties:
+      key_name: heat_latest
       flavor: m1.amphora
       image: ub
       networks:
