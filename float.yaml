@@ -4,7 +4,6 @@ resources:
     type: OS::Nova::FloatingIP
     properties:
       pool: public
-
   inst1:
     type: OS::Nova::Server
     properties:
