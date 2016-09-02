@@ -1,0 +1,32 @@
+curl -X POST --header "Content-Type: application/json" --header "Accept: application/json" -d "{
+  \"allowDelete\": true,
+  \"alternateName\": \"string\",
+  \"deleted\": true,
+  \"description\": \"string\",
+  \"disableConcurrentPolling\": true,
+  \"disablePolling\": true,
+  \"disableThresholding\": true,
+  \"ids\": [
+    0
+  ],
+  \"inDeviceGroupIds\": [
+    0
+  ],
+  \"ipAddress\": \"string\",
+  \"name\": \"string\",
+  \"new\": true,
+  \"notInDeviceGroupIds\": [
+    0
+  ],
+  \"numElements\": 0,
+  \"peerIds\": [
+    0
+  ],
+  \"pluginManagerId\": 0,
+  \"pollFrequency\": 0,
+  \"snmpVersion\": 0,
+  \"timezone\": \"string\",
+  \"workhoursGroupId\": 0
+}" "https://sevdemo.sevone.com/api/v1/devices/filter?size=20&includeObjects=false&includeIndicators=false&localOnly=true"	5:13 PM
+We would use filters to get specific device information.	
+
