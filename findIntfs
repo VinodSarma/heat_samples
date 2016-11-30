@@ -1,0 +1,10 @@
+mac=`neutron port-list | grep $1 | cut -d\| -f4`
+last_mac=`expr substr $mac 4 20`
+tap_inf=`ifconfig -a | grep $last_mac | awk '{print $1}'`
+linux_br=`echo $tap_inf | sed s/tap/qbr/g`
+ovs_port=`echo $tap_inf | sed s/tap/qvo/g`
+
+echo "interfaces attached to VM port having IP - $1" 
+echo "tap if name : $tap_inf" 
+echo "linux br name : $linux_br" 
+echo "br-int ovs port name : $ovs_port" 
