@@ -1,0 +1,16 @@
+#command usage
+# portmirror <src_ovs_port> <out_ovs_port>
+
+src_port=$1
+out_port=$2
+#cmd=`echo "sudo ovs-vsctl -- set Bridge br-int mirrors=@m  -- --id=@$out_port get Port $out_port  -- --id=@$src_port get Port $src_port -- --id=@m create Mirror name=mymirror select-dst-port=@$src_port select-src-port=@$src_port output-port=@$out_port"`
+
+#echo $cmd
+sudo ovs-vsctl -- set Bridge br-int mirrors=@m  -- --id=@$out_port get Port $out_port  -- --id=@$src_port get Port $src_port -- --id=@m create Mirror name=mymirror select-dst-port=@$src_port select-src-port=@$src_port output-port=@$out_port
+
+sudo ifconfig $out_port promisc
+
+#promiscCmd=`echo "sudo ifconfig $out_port promisc"`
+#echo "$promiscCmd"
+
+sudo ifconfig $src_port promisc
