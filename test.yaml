@@ -16,7 +16,7 @@ resources:
         - network: SDN-NFV-Demo-Titus-PN10
       user_data: 
         template: |
-        #!/usr/bin/env bash
+        #!/bin/bash
           echo "Hello world"
           echo "Setting MySQL root password"
           echo "Hello world"
