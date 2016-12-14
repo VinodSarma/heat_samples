@@ -17,13 +17,13 @@ resources:
       user_data: 
         template: |
         #!/usr/bin/env bash
-        echo "Hello world"
-        echo "Setting MySQL root password"
-        echo "Hello world"
-        echo "Hello world"
-        echo "Hello world"
-        echo "Hello world"
-
+          echo "Hello world"
+          echo "Setting MySQL root password"
+          echo "Hello world"
+          echo "Hello world"
+          echo "Hello world"
+          echo "Hello world"
+  
   association:
     type: OS::Nova::FloatingIPAssociation
     properties:
