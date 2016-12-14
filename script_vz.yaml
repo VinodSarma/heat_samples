@@ -18,6 +18,109 @@ resources:
             #!/bin/bash
             echo "Hello world"
             echo "Setting MySQL root password"
+            sudo apt-get update
+            sudo apt-get -y install automake
+            sudo apt-get -y install flex
+            sudo apt-get -y install bison
+            sudo apt-get -y install git
+            sudo apt-get -y install libpcap-dev   
+            sudo apt-get -y install autoconf
+            sudo apt-get -y install autogen
+            sudo apt-get -y install libtool
+            sudo apt-get -y install g++
+            sudo apt-get -y install make
+            sudo apt-get -y install pkg-config
+            sudo apt-get -y install libncurses5-dev
+            sudo apt-get -y install build-essential
+            sudo git clone https://github.com/VinodSarma/VzProbe.git
+            cd VzProbe/
+            sudo tar -zxf wandio-1.0.4.tar.gz
+            cd wandio-1.0.4/
+            sudo ./configure
+            sudo make 
+            sudo make install
+            cd ../
+            sudo tar xf libtrace-4.0.0.tar
+            cd libtrace-4.0.0/
+            sudo ./configure
+            sudo make &> log1
+            sudo make install &> log2
+            cd ../
+            sudo tar xf dpdk-16.07.2.tar.xz
+            cd dpdk-stable-16.07.2/
+            sudo make install T=x86_64-native-linuxapp-gcc &> log3
+            sudo modprobe uio_pci_generic
+            sudo modprobe vfio-pci
+            cd ../
+            sudo git clone https://github.com/ntop/nDPI.git
+            cd nDPI
+            sudo sh autogen.sh &> log4
+            sudo ./configure &> log5
+            sudo make &> log6
+            sudo make install &> log7
+            export RTE_SDK=/VzProbe/dpdk-stable-16.07.2
+            export RTE_TARGET=x86_64-native-linuxapp-gcc
+            cd ../
+            sudo git clone https://fbmpoc:icis%40123@bitbucket.org/fbmpoc/july30_2016.git -b Sgs_lite
+            sudo cp $RTE_SDK/drivers/net/pcap/rte_eth_pcap.c /VzProbe/july30_2016/COLLECTOR/src_lat/.
+            cd /VzProbe/july30_2016/COLLECTOR/src_lat/
+            sudo RTE_SDK=$RTE_SDK RTE_TARGET=$RTE_TARGET make dpdr=7 &> log8
+            cd /VzProbe/july30_2016/ANALYZER/FBMPOC_BUP/
+            sudo make &> log9
+
+            #Starting processes
+
+            HUGEPGSZ=`cat /proc/meminfo  | grep Hugepagesize | cut -d : -f 2 | tr -d ' '`
+
+            #
+            # Creates hugepage filesystem.
+            #
+            create_mnt_huge()
+            {
+             #echo "Creating /mnt/huge and mounting as hugetlbfs"
+             sudo mkdir -p /mnt/huge
+
+             grep -s '/mnt/huge' /proc/mounts > /dev/null
+             if [ $? -ne 0 ] ; then
+                sudo mount -t hugetlbfs nodev /mnt/huge
+             fi
+            }
+
+            #
+            # Creates hugepages on specific NUMA nodes.
+            #
+            set_numa_pages()
+            {
+            #clear_huge_pages
+
+            #echo ""
+            #echo "  Input the number of ${HUGEPGSZ} hugepages for each node"
+            #echo "  Example: to have 128MB of hugepages available per node in a 2MB huge page system,"
+            #echo "  enter '64' to reserve 64 * 2MB pages on each node"
+
+            echo > .echo_tmp
+            for d in /sys/devices/system/node/node? ; do
+                node=$(basename $d)
+                #echo -n "Number of pages for $node: "
+                read Pages
+                echo "echo 1024 > $d/hugepages/hugepages-${HUGEPGSZ}/nr_hugepages" >> .echo_tmp
+            done
+            echo "Reserving hugepages"
+            sudo sh .echo_tmp
+            rm -f .echo_tmp
+
+            create_mnt_huge
+            }
+
+            set_numa_pages
+
+            sudo mkdir -p  /apps/opt/LIBTRACE/test/
+
+            cd /VzProbe/july30_2016/COLLECTOR/src_lat/
+            sudo ./build/Vzprobe-dump -l 0,1,2 -n 4 --vdev 'eth_pcap0,iface=eth0' -- -w /apps/opt/LIBTRACE/test/ -G 10 -p 0x01 --config "(0,0,0)" --wcore 2 >> result.log &
+            export LD_LIBRARY_PATH=/usr/local/lib/
+            cd /VzProbe/july30_2016/ANALYZER/FBMPOC_BUP/
+            sudo LD_LIBRARY_PATH=/usr/local/lib/  ./PCAP_ANALY_TCPT -l pcapanal1.log | grep -i splunk >> splunk.log &
 
   association:
     type: OS::Nova::FloatingIPAssociation
