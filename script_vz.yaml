@@ -13,8 +13,7 @@ resources:
       image: ubunut-test
       networks:
         - network: SDN-NFV-Demo-Titus-PN10
-      user_data:
-        template: |
+      user_data: |
             #!/bin/bash
             echo "Hello world"
             echo "Setting MySQL root password"
