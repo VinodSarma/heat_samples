@@ -14,6 +14,7 @@ resources:
       key_name: vinod
       networks:
         - network: SDN-NFV-Demo-Titus-PN10
+      user_data_format: RAW
       user_data: \n
         
   association:
