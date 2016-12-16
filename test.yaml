@@ -17,8 +17,6 @@ resources:
       user_data: 
         str_replace: 
           template:
-            #!/bin/bash -v
-            - echo "VINOD" > test.txt
         
   association:
     type: OS::Nova::FloatingIPAssociation
