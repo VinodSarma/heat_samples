@@ -15,7 +15,7 @@ resources:
       networks:
         - network: SDN-NFV-Demo-Titus-PN10
       user_data_format: RAW
-      user_data: \n
+      user_data: 
         #!/bin/bash
         echo "TEST" > vinod.txt
         
