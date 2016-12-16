@@ -14,8 +14,12 @@ resources:
       key_name: vinod
       networks:
         - network: SDN-NFV-Demo-Titus-PN10
-      user_data: |
-        - echo "test message" >> message_from_cloud_init.txt
+      user_data: 
+        str_replace: 
+          template: |
+            #!/bin/bash -v
+            echo "VINOD" > test.txt
+        
   association:
     type: OS::Nova::FloatingIPAssociation
     properties:
