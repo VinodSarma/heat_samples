@@ -17,7 +17,8 @@ resources:
       user_data_format: RAW
       user_data: 
         #!/bin/bash
-        echo "TEST" > vinod.txt
+        sudo apt-get update
+        echo "TEST" > ~/vinod.txt
         
   association:
     type: OS::Nova::FloatingIPAssociation
