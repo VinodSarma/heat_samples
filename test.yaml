@@ -15,12 +15,6 @@ resources:
       networks:
         - network: mgmt1
       user_data_format: RAW
-      user_data: 
-        str_replace:
-          template: |
-            #!/bin/bash
-            sudo apt-get update
-            echo "TEST" > ~/vinod.txt
         
   association:
     type: OS::Nova::FloatingIPAssociation
