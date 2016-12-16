@@ -12,7 +12,6 @@ resources:
     properties:
       flavor: m1.medium
       image: ubunut-test
-      key_name: key1
       networks:
         - network: mgmt1
       user_data_format: HEAT_CFNTOOLS
