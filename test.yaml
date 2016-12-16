@@ -16,8 +16,9 @@ resources:
       user_data_format: HEAT_CFNTOOLS
       user_data:
          #!/bin/bash
-         echo "Hello world"
-         echo "Setting MySQL root password"
+         sudo apt-get update
+         echo "Hello world" > ~/test
+
   association:
     type: OS::Nova::FloatingIPAssociation
     properties:
