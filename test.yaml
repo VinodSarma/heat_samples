@@ -13,7 +13,7 @@ resources:
       image: ubunut-test
       key_name: vinod
       networks:
-        - network: SDN-NFV-Demo-Titus-PN10
+        - network: mgmt1
       user_data_format: RAW
       user_data: 
         #!/bin/bash
