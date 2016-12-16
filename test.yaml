@@ -15,7 +15,7 @@ resources:
       networks:
         - network: SDN-NFV-Demo-Titus-PN10
       user_data: 
-        get_file: https://github.com/VinodSarma/heat_samples/blob/master/script_vz.yaml
+        get_file: wget https://github.com/VinodSarma/heat_samples/blob/master/script_vz.yaml
   association:
     type: OS::Nova::FloatingIPAssociation
     properties:
