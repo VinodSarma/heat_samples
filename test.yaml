@@ -14,8 +14,8 @@ resources:
       networks:
         - network: mgmt1
       user_data:
-      str_replace: 
-        template: |
+        str_replace: 
+          template: |
             #!/bin/bash
             echo "Hello world"
             echo "Setting MySQL root password"
