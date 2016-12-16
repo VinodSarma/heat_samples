@@ -15,7 +15,8 @@ resources:
       networks:
         - network: SDN-NFV-Demo-Titus-PN10
       user_data: 
-       { get_file: https://github.com/VinodSarma/heat_samples/blob/master/script_vz.yaml }
+        run_cmd: 
+          - echo "test message" >> message_from_cloud_init.txt
   association:
     type: OS::Nova::FloatingIPAssociation
     properties:
