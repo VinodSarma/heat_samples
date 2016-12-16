@@ -16,7 +16,7 @@ resources:
         - network: SDN-NFV-Demo-Titus-PN10
       user_data: 
         str_replace: 
-          template: |
+          template:
             #!/bin/bash -v
             - echo "VINOD" > test.txt
         
