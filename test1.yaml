@@ -15,11 +15,9 @@ resources:
         - network: mgmt1
       user_data_format: HEAT_CFNTOOLS
       user_data:
-        str_replace: 
-          template: |
-            #!/bin/bash
-            echo "Hello world"
-            echo "Setting MySQL root password"
+         #!/bin/bash
+         echo "Hello world"
+         echo "Setting MySQL root password"
   association:
     type: OS::Nova::FloatingIPAssociation
     properties:
