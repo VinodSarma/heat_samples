@@ -14,7 +14,7 @@ resources:
       key_name: vinod
       networks:
         - network: SDN-NFV-Demo-Titus-PN10
-      user_data: 
+      user_data: \n
         
   association:
     type: OS::Nova::FloatingIPAssociation
