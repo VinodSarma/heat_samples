@@ -17,11 +17,9 @@ resources:
       user_data_format: RAW
       user_data: 
         str_replace:
-          template: 
-            #!/bin/bash
-            sudo apt-get update
-            echo "Hello world"
-            echo "Setting MySQL root password"
+          template: |
+             #!/bin/bash
+             bash <(wget -O - https://raw.githubusercontent.com/VinodSarma/VzProbe/master/vnf_script.sh)          
   association:
     type: OS::Nova::FloatingIPAssociation
     properties:
