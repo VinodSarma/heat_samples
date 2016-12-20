@@ -15,23 +15,10 @@ resources:
         - network: mgmt1
       user_data_format: HEAT_CFNTOOLS
       user_data:
-
-  install_config_agent_test:
-    type: OS::Heat::SoftwareConfig
-    properties:
-      config: 
-        str_replace:
-          template: |
-            #!/bin/bash
+            #!/bin/sh
             sudo apt-get update
             echo "Hello world" > ~/test
-  
-  install_config_agent:
-    type: "OS::Heat::MultipartMime"
-    properties:
-      parts:
-      - config: {get_resource: install_config_agent_test}
- 
+            
   association:
     type: OS::Nova::FloatingIPAssociation
     properties:
