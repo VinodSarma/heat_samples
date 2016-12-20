@@ -16,7 +16,7 @@ resources:
       user_data_format: HEAT_CFNTOOLS
       user_data:
 
-install_config_agent_test:
+  install_config_agent_test:
     type: OS::Heat::SoftwareConfig
     properties:
       config: 
