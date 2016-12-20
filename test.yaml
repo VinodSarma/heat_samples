@@ -23,7 +23,7 @@ resources:
     type: OS::Heat::SoftwareConfig
     properties:
       config:
-        get_file: https://github.com/VinodSarma/heat_samples/edit/master/test.yaml
+        get_file: /Users/lab3/test.sh
   
   association:
     type: OS::Nova::FloatingIPAssociation
