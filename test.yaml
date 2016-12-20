@@ -17,6 +17,8 @@ resources:
         - network: mgmt1
       user_data_format: HEAT_CFNTOOLS
       user_data:
+        str_replace:
+          template: 
             #!/bin/sh
             sudo apt-get update
             echo "Hello world" > ~/test
