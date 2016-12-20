@@ -9,6 +9,8 @@ resources:
   inst1:
     type: OS::Nova::Server
     properties:
+      name: vinod
+      key_name: vinod
       flavor: m1.medium
       image: ubunut-test
       networks:
