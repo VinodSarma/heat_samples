@@ -1,0 +1,29 @@
+heat_template_version: 2014-10-16
+description: A simple auto scaling group.
+resources:
+  floating_ip1:
+    type: OS::Nova::FloatingIP
+    properties:
+      pool: net04_ext
+  floating_ip2:
+    type: OS::Nova::FloatingIP
+    properties:
+      pool: net04_ext
+       
+  inst1:
+    type: OS::Nova::Server
+    properties:
+      name: collector
+      key_name: vinod-key
+      flavor: m1.medium
+      image: ubunut-test
+      networks:
+        - network: mgmt1
+
+
+          
+  association1:
+    type: OS::Nova::FloatingIPAssociation
+    properties:
+      floating_ip: { get_resource: floating_ip1 }
+      server_id: { get_resource: inst1 }
