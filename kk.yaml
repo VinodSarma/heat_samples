@@ -15,7 +15,7 @@ resources:
     properties:
       name: collector
       key_name: vinod-key
-      flavor: m1.medium
+      flavor: m1.small
       image: ubunut-test
       networks:
         - network: mgmt1
