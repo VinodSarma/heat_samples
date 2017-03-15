@@ -10,3 +10,90 @@ root@sdnlab:~# curl -u "Authorization: Zm9ydGluZXQ=" -iv https://10.1.13.37:8080
 * error:14077410:SSL routines:SSL23_GET_SERVER_HELLO:sslv3 alert handshake failure
 * Closing connection 0
 curl: (35) error:14077410:SSL routines:SSL23_GET_SERVER_HELLO:sslv3 alert handshake failure
+
+
+
+ curl -H "Authorization: Zm9ydGluZXQ=" -i http://10.1.13.37:80/api/v1.0/System/Network/StaticRoute
+HTTP/1.1 401 UNAUTHORIZED
+Date: Wed, 15 Mar 2017 16:28:57 GMT
+Server: xxxxxxxx-xxxxx
+Content-Security-Policy: frame-ancestors 'self'
+Expires: Wed, 15 Mar 2017 16:28:57 GMT
+Vary: Cookie,Accept-Encoding
+Last-Modified: Wed, 15 Mar 2017 16:28:57 GMT
+X-UA-Compatible: IE=Edge
+Cache-Control: max-age=0
+X-FRAME-OPTIONS: SAMEORIGIN
+Set-Cookie: csrftoken_10656386745237807568=5f4e8725156c7663c9fe6c48b99f8815; expires=Wed, 14-Mar-2018 16:28:57 GMT; Max-Age=31449600; Path=/
+Transfer-Encoding: chunked
+Content-Type: text/html; charset=utf-8
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Error</title>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html">
+<meta http-equiv="pragma" content="no-cache">
+<script>
+var is_rw_admin = false;
+var is_guest = false;
+var is_ipv6_enabled = false;
+var gui_lines_per_page = 50;
+var lang_dict = {};
+window.onerror = function(msg, file, line) {
+    if (('$j' in window) && ('JSON' in window)) {
+        $j.post("/api/monitor?path=system&name=debug", {
+            "json": JSON.stringify({
+                "type": "JavaScript",
+                "msg": msg,
+                "file": file,
+                "line": line
+            })
+        });
+    }
+};
+</script><link href="/06915fcc37c111ee8146831a9348926e/css/main-green.css" rel="stylesheet" type="text/css">
+<link href="/06915fcc37c111ee8146831a9348926e/css/jquery.ui.css" rel="stylesheet" type="text/css">
+<link href="/06915fcc37c111ee8146831a9348926e/module_css/flag_icons.css" rel="stylesheet" type="text/css">
+
+<script src="/06915fcc37c111ee8146831a9348926e/js/es6-shim.js"></script>
+<script src="/06915fcc37c111ee8146831a9348926e/js/fweb_build.js"></script>
+<script src="/06915fcc37c111ee8146831a9348926e/lang/en.js"></script>
+<script src="/06915fcc37c111ee8146831a9348926e/fweb_core_all.js"></script>
+<script src="/06915fcc37c111ee8146831a9348926e/js/fweb_extra_all.js"></script>
+
+<script src="/06915fcc37c111ee8146831a9348926e/js/dialog.js"></script>
+</head>
+
+<body  class="main" data-theme="green">
+<div style='display:none'><input type='hidden' name='csrfmiddlewaretoken' value='5f4e8725156c7663c9fe6c48b99f8815' /></div><div class="dialog absolute" >
+<form method="post" action="" >
+<div style='display:none'><input type='hidden' name='csrfmiddlewaretoken' value='5f4e8725156c7663c9fe6c48b99f8815' /></div>
+<div class="title-bar">
+<h1>Error</h1>
+</div>
+
+<div class="content ">
+<div class="section-title">
+    <h2>Error 401: Unauthorized.</h2>
+</div>
+</div>
+
+<div class="footer">
+    <button class="primary" type="button"
+        onclick="dlg_close((null))"
+        data-fweb-action="cancel"
+>
+OK    </button>
+</div>
+
+</form>
+</div>
+
+<script>
+$(document).ready(function() {
+  $('textarea[expand]').textarea();
+});
+</script>
+</body>
