@@ -1,0 +1,12 @@
+root@sdnlab:~# curl -u "Authorization: Zm9ydGluZXQ=" -iv https://10.1.13.37:8080/api/v1.0/auth -H "accept:application/json"
+* Hostname was NOT found in DNS cache
+*   Trying 10.1.13.37...
+* Connected to 10.1.13.37 (10.1.13.37) port 8080 (#0)
+* successfully set certificate verify locations:
+*   CAfile: none
+  CApath: /etc/ssl/certs
+* SSLv3, TLS handshake, Client hello (1):
+* SSLv3, TLS alert, Server hello (2):
+* error:14077410:SSL routines:SSL23_GET_SERVER_HELLO:sslv3 alert handshake failure
+* Closing connection 0
+curl: (35) error:14077410:SSL routines:SSL23_GET_SERVER_HELLO:sslv3 alert handshake failure
