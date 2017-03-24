@@ -1,0 +1,21 @@
+{  
+    "name":"FortiGate-NG-Firewall-NetworkService",
+    "vendor":"Fortinet",
+    "version":"4.5.1",
+    "vnfd":[  
+        {  
+            "id":"123"
+        }
+    ],
+    "vld":[  
+        {  
+            "name":"cdil-intranet"
+        },
+		{  
+            "name":"public"
+        },
+		{  
+            "name":"shared-net"
+        }
+    ]
+}
