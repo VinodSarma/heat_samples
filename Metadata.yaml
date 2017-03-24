@@ -1,0 +1,7 @@
+name: FortiGate-NG-Firewall
+image:
+    upload: false
+    names:
+        - FortiGateVNS
+vim_types:
+    - openstack
