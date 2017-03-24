@@ -1,0 +1,46 @@
+{  
+ "name":"FortiGate NG Firewall",
+ "vendor":"Fortinet",
+ "version":"5.4.1",
+ "vdu":[  
+	{  
+	   "vm_image":[],
+	   "scale_in_out":3,
+	   "vnfc":[  
+		  {  
+			 "connection_point":[  
+				{  
+					"virtual_link_reference":"cdil-intranet"
+				},
+				{  
+					"virtual_link_reference":"public"
+				},
+				{  
+					"virtual_link_reference":"shared-net"
+				}
+			 ]
+		  }
+	   ],
+	   "vimInstanceName":["Boston-vim-instance-5"]
+	}
+ ],
+ "virtual_link":[  
+	{  
+	   "name":"cdil-intranet"
+	},
+	{  
+	   "name":"public"
+	},
+	{  
+	   "name":"shared-net"
+	}
+ ],
+ "deployment_flavour":[  
+	{  
+	   "flavour_key":"custom"
+	}
+ ],
+ 
+ "type":"FortiGateVNS",
+ "endpoint":"generic"
+}
