@@ -97,3 +97,30 @@ $(document).ready(function() {
 });
 </script>
 </body>
+
+
+
+
+
+PUT https://192.168.12.70/api/v2/cmdb/dnsfilter/urlfilter/1?vdom=root
+
+{
+  "json": {
+    "entries": [
+      {
+        "id": 1,
+        "url": "*facebook.com",
+        "type": "wildcard",
+        "action": "block",
+        "status": "enable"
+      },
+      {
+        "id": 2,
+        "url": "*linked.com",
+        "type": "wildcard",
+        "action": "block",
+        "status": "enable"
+      }
+    ]
+  }
+}
