@@ -1,0 +1,174 @@
+{
+	"vnfd": {
+		"name": "CGNAT",
+		"vnfd-id": "",
+		"vendor": "ETSI",
+		"description": "CGNAT",
+		"version": "1.0",
+		"vdus": [
+		{
+			"vduName": {
+						"vdu-id": "vCGNAT",
+						"vm-image": {						
+							"uri": "http://www.example.com/support/vFW1.qcow"
+							},
+						"storage": {
+							"storage_requirement" : {
+								"description" : "Required storage characteristics (e.g. size), including Key Quality Indicators (KQIs) for performance and reliability/availability. "
+							},
+							"rdma_support_bandwitdh" : "The VDU may have been developed, optimized or tested with a storage supporting RDMA over a given bandwidth. "
+						    },
+						"cpu": {
+							"num-vpu": "2",
+							"cpu_instruction_set_extension" : "String" , 
+							"cpu_model" : "String", 
+							"cpu_model_specification_binding" : "",
+							"cpu_min_clock_speed" : "String", 
+							"cpu_core_reservation" : "String",
+							"cpu_simultaneous_multi_threading_hw_thread_specification" : "String",
+							"cpu_core_oversubscription_policy": "",
+							"cpu_core_and_hw_thread_allocation_topology_policy": "",
+							"cpu_last_level_cache_size" : "",
+							"cpu_direct_io_access_to_cache": "",
+							"cpu_translation_look_aside_buffer_parameter" : [""],
+							"cpu_hot_add" : "",
+							"cpu_support_accelerator" : ""
+						},
+						"memory": {
+							"total-memory-gb": "4",
+							"memory_parameter": {
+								"memory_type" : "", 
+								"memory_speed" : "", 
+								"number_of_memory_channels" : "", 
+								"available_memory_size" : "", 
+								"memory_over_subscription_policy" : "", 
+								"Reliability_characteristics": "such as Memory Error Correction codes.",
+								"Memory oversubscription policy."
+								Memory bandwidth required per VDU.
+								Number of large pages required per VDU
+								Non-Uniform Memory Architecture (NUMA) Allocation Policy,i.e. in NUMA architecture how you specify memory allocation that is cognisant of the relevant process/core allocation. This applies also to allocation of huge pages" },
+							"memory_hot_add":""
+						},
+						"virtual_network_bandwidth_resource":"This represents the requirements in terms of the virtual network bandwidth needed for the VDU",
+						"lifecycle-event":{
+						},
+						"other-constraints": {
+						},
+						"high-availability":{
+						},
+						scale-in-out:{
+						},
+						"vnfc":{
+							"id" : "String", 
+							 "connection-point" : 	[{
+														"id" : "",
+														"virtual-link_reference" : "Reference ID in vnfd:virtual_link:id to which other VNFCs can connect",
+														"type" : ""
+													}]
+								},
+						monitoring-parameters:{
+						},
+                        
+						/*
+						*/
+						
+						"platform_security_parameter":{},
+						"hypervisor_parameter":{
+							Hypervisor type
+							Hypervisor version as a VDU may be validated with a particular version.
+							Hypervisor Address Translation support parameters including:
+								Second Level Address Translation (see note 2).
+								Second Level Address Translation with Large page support.
+								Second Level Address Translation for I/O.
+								Second Level Address Translation for I/O with Large page. support. Where "Large" is considered to be 1 GB or greater.
+								Support for interrupt remapping, i.e. supporting the IOMMU in the hypervisor.
+								Support of data processing acceleration libraries in the hypervisor, i.e. for acceleration libraries which require hypervisor support for high performance.
+						},
+						"platform_pcie_parameter":{
+							PCIe generational capabilities.
+							PCIe bandwidth.
+							PCIe Device Pass-through.
+							PCIe SR-IOV as the VDU may require that an SRIOV virtual vunction from the specified PCIe device can be allocated to the VM.
+							PCIe Device Assignment Affinity. The VDU may require for performance reasons the ability to allocate a partitionable PCIe Device capability such as a NIC port, an entire NIC or a NIC virtual function to the VDU while also ensuring that the selected device is locally connected to the same
+processor
+						},
+						"pcie_advanced_error_reporting":"",
+						"platform_acceleration_device":"",
+						"network_interface_card_capability":{
+							TCP Large Segmentation Offload (LSO) for offload the segmentation of large TCP messages into MTU sized packets from the CPU to the NIC.
+							Large Receive Offload (LRO), i.e. the inverse of LSO by coalescing incoming TCP/IP packets into larger segments for processing in the CPU.
+							Checksum Offload.
+							Receive Side Scaling (RSS), for packet distribution between cores.
+							Flow Director, for more fine grained (than RSS) packet distribution between cores.
+							Mirroring of packets between interfaces.
+							Availability of Independent Rx/Tx queues for VM so that queue pairs in the NIC can be allocated to the VMs.
+							Jumbo Frame support.
+							VLAN tag stripping.
+							RDMA support.
+							SR-IOV support.
+							Data processing acceleration software library support, e.g. DPDK
+						},
+						"network_interface_bandwidth": "The network speed/bandwidth to be guaranteed per requested NIC.",
+						"data_processing_acceleration_library": "Name and version of the data processing acceleration library used. Orchestration can match any NIC that is known to be compatible with the specified library.",
+						"vswitch_capability" : {
+							"description" : "The VDU may have been developed, optimized or tested with a particular vSwitch and may require specifying the vSwitch type, version and key features such as overlay tunnel termination support. "
+						},
+						"corrected_error_notification" : {
+							"description" : "For tracking system CORRECTABLE errors"
+						},
+						"uncorrected_error_notification" : {
+							"description" : "Detects UNCORRECTED system bus errors, ECC errors, parity errors, cache errors, and translation lookaside buffer errors - raising exceptions"
+						}
+						
+					}
+			
+		}],
+		"virtual-links":[
+			{
+				"id" : "Unique identifier of this internal Virtual Link",
+				"connectivity_type" : "Connectivity type (e.g. E-Line, E-LAN or E-Tree)",
+				"connection_points_references" : {
+						"connection-point-id-1" : "",
+						"connection-point-id-2" : ""
+				},
+				"root_requirement" : "Describes required throughput of the link (e.g. bandwidth of E-Line, root bandwidth of E-Tree, and aggregate capacity of E_LAN).",
+				"leaf_requirement" : "Describes required throughput of leaf connections to the link (for E-Tree and E-LAN branches)",
+				"qos" : {
+					"description" : "Describes the QoS options to be supported on the VL e.g. latency, jitter, etc."
+				},
+				"test_access" : "Describes the test access facilities to be supported on the VL (e.g. none, passive monitoring, or active (intrusive) loopbacks at endpoints."
+			}
+		],
+		"connection-points": [
+			{
+				"id" : "",
+				"virtual-link_reference" : "Reference ID in vnfd:virtual_link:id to which other VNFCs can connect",
+				"type" : ""
+			}
+		],
+		"lifecycle-events": {
+							"description" : " initialization, termination, graceful shutdown, scaling out/in, update/upgrade, VNF state management related actions to support service continuity "
+		},
+		"dependencies":{
+		},
+		"monitoring-parameters":{
+							"description" : "Monitoring parameters, which can be tracked for this VNF. Can be used for specifying different deployment flavours for the VNF in a VNFD, and/or to indicate different levels of VNF service availability.							These parameters can be an aggregation of the parameters at VDU level e.g. memory-consumption, CPU-utilisation, bandwidth-consumption, etc. They can be VNF specific as well such as calls-persecond (cps), number-of-subscribers, no-of-rules, flowsper-second, VNF downtime, etc. One or more of these parameters could be influential in determining the need to scale."
+								},
+		deployment-flavour:{
+			"id" : "",
+			"flavour_key" : "This will ahev a particular pre defined flavor absed on use-case. This flavor would in turn describe the vdus-details for the VNF as a whole",
+			"constraint" : "Constraint that this deployment flavour can only meet the requirements on certain hardware",
+			"constituent_vdu" :[
+				{
+				"vdu_reference" : "References a VDU which should be used for this deployment flavour by vnfd - vdu-id",
+				"number_of_instances" : "",
+				"constituent_vnfc" : ""
+				}
+			]			
+		},
+		"autoscaling-policies":{
+		},
+		"manifest-file":"",
+		"manifest-file-security":""
+	}
+}
