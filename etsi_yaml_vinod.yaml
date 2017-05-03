@@ -1,0 +1,381 @@
+vnfdId:                                     
+vnfdName:                                   
+vnfProvider:                                
+vnfdVersion:                              
+vnfmInfo:                                 
+description:         
+vdu:                                        
+    id :                              
+    description: Single VM VNF
+    internalCpd:                               ( A VNF need not have internal CPs , it can have only one external CP)
+        internalVld:                        
+        bitRateRequirement: # 
+
+    virtualComputeDescriptor:                 
+        id: vcd_001    
+        requestAdditionalCapabilities:       
+                requestedAditionalCapabilityName: String    
+                support : Boolean 
+                minRequestedAdditionalCapabilityVersion: String
+                preferredRequestedAdditionalCapabilityVersion: String
+                targetPerformanceParameters:    KeyValuePair
+				
+        virtualMemory:      
+                virtualMemSize: 1024          
+                virtualMemOverSubscriptionPolicy: 0     
+                memoryPageSize: SMALL       
+
+        virtualCpu:         
+                cpuArchitecture: x86      
+                numVirtualCpu: 1
+                virtualCpuclock: 0  
+                virtualCpuOversubscriptionPolicy: 0    
+                virtualCpuPinning: 
+                    cpuPolicy: Shared
+                    cpuPinningPolicy: static / dyanamic
+                    cpuPinningMap: [ [0,1], [2,3], [4,5], [6,7], [8,9] ]
+
+
+
+    virtualStorageDescriptor:                 
+            id: vsd_001
+            typeOfStorage: volume
+            sizeOfStorage: 1024000
+            rdmaEnabled: False
+            swImageDescriptor: sid_001
+            raidEnabled: False
+            raidLevel:
+            snapshotEnabled:  False
+            snapshotFrequency: -1
+            volumeBootable: False
+
+    bootOrder:                                 
+        type: KeyValuePair
+        description: Defines boot order of VSDs
+        priority: 1
+        vsd_id: vsd_001
+              
+    swImageDescriptor:                      
+        id:     
+        name:    
+        version:     
+        checksum:     
+        containerFormat:    
+        diskFormat:    
+        minDisk:       
+        minRam:      
+        size:       
+        swImage:     
+        operatingSystem:        
+        supportedVirtualizationEnvironment:   
+        license:
+            licenseData: 
+            licenseDateValidity:# -1      
+            licenseInstanceValidity:       
+            licenseAdditionalParams:       
+
+    nfviConstraint: null
+    
+    monitoringParameter:                      
+            id:   
+            name: 
+            performanceMetric: 
+				
+            computeMetrics:
+                id: 1
+                virtualCpuAvailable: 4
+                virtualCpuUtilization: 0.6
+                peakCpuUtilization: 0.75
+                averageCpuUtilization: 0.5
+
+            memoryMetrics:
+                memoryActual: -1
+                memorySwapIn: -1
+                memorySwapOut: -1
+                memoryMajorFault: -1
+                memoryMinorFault: -1
+                memoryUnused: -1
+                memoryAvailable: -1
+                memoryRss: -1
+
+            storageMetrics:
+                id: 1
+                readBytes: -1
+                readBytesRate: -1
+                writeBytes: -1
+                writeBytesRate: -1
+                readRequests: -1
+                readRequestsRate: -1
+                writeRequests: -1
+                writeRequestsRate: -1
+                diskAllocation: -1
+
+            networkMetrics:
+                id:
+                packetsIn:
+                packetsOut:
+                bytesIn:
+                bytesOut:
+                averagePacketRate:
+                peakPacketRate:
+                packetsDropped:
+                runtFrames:
+                byte64_byte127Packets:
+                byte128_byte255Packets:
+                byte256_byte511Packets:
+                byte512_byte1024Packets:
+                jumboFrames:
+                averageCallRate:
+                droppedCallRate:
+                peakCallRate:
+                minPacketLatency:
+                averagePacketLatency:
+                maxPacketLatency:
+                minPacketJitter:
+                averagePacketJitter:
+                maxPacketJitter:
+
+
+    vduCredentials: #{'username' : 'password'}  ----------->  
+        			
+    hostEpaParameter: 
+        type:
+        description:
+        hostArchitecture: x86
+        hostCpuModel: Intel(R) Xeon(R) CPU E5-4620 0 @ 2.20GHz
+
+    guestEpaParameter: 
+        type:
+        description:
+        numaEnabled: False
+        numaNodeCount: 4
+        numaNodeMap: 0:1
+        vswitchNUMAAffinity: Preferred / Strict
+        pciNUMAAffinity: Preferred / Strict
+
+    NICCapability: 
+
+
+internalVld:                                
+    vldIdentifierId:           
+    connectivityType:
+        layerProtocol: 
+        flowPattern:  
+
+    testAccess: 
+    description: 
+    addressData: 
+        addressType:
+            l2AddressData: 
+                MacAddress: ff:ff:ff:ff
+                VLAN: 2343
+                VNID: 345
+            l3AddressData: 
+            
+                ipAddressAssignment: True (DHCP)
+                floatingIPActivated: True
+                ipAddressType: ipv4 / ipv6
+                numberOfIPaddress: 0
+                ipAddress: [ipv4_address_1, ipv4_address_2....]
+                ipAssignmentMethod: static / dhcp
+                L3NetworkName: 
+                L3NetworkType:  [Data-private, Data-public,  Management, Storage]
+    monitoringParameter:  ----  
+        id: 
+        name:
+        performanceMetric:
+        computeMetrics: 
+            id: 
+            virtualCpuAvailable: 4
+            virtualCpuUtilization: .6
+            peakCpuUtilization: .7 
+            averageCpuUtilization: .5
+
+        memoryMetrics:
+            memoryActual: -1
+            memorySwapIn: -1
+            memorySwapOut: -1
+            memoryMajorFault: -1
+            memoryMinorFault: -1
+            memoryUnused: -1
+            memoryAvailable: -1
+            memoryRss: -1
+
+        storageMetrics:
+            id: -1
+            readBytes: -1
+            readBytesRate: -1
+            writeBytes: -1
+            writeBytesRate: -1
+            readRequests: -1
+            readRequestsRate: -1
+            writeRequests: -1
+            writeRequestsRate: -1
+            diskAllocation: -1
+
+        networkMetrics: #    
+            id: -1
+            packetsIn: -1
+            packetsOut: -1
+            bytesIn: -1
+            bytesOut: -1
+            averagePacketRate: -1
+            peakPacketRate: -1
+            packetsDropped: -1
+            runtFrames: -1
+            byte64_byte127Packets: -1
+            byte128_byte255Packets: -1
+            byte256_byte511Packets: -1
+            byte512_byte1024Packets: -1
+            jumboFrames: -1
+            averageCallRate: -1
+            droppedCallRate: -1
+            peakCallRate: -1
+            minPacketLatency: -1
+            averagePacketLatency: -1
+            maxPacketLatency: -1
+            minPacketJitter: -1
+            averagePacketJitter: -1
+            maxPacketJitter: -1
+        
+
+
+
+vnfExtCpd:                                  
+    internalVLD:     
+    internalCpd:        
+    addressData: 
+        addressType:
+            l2AddressData: 
+                MacAddress: ff:ff:ff:ff
+                VLAN: 2343
+                VNID: 345
+            l3AddressData: 
+            
+                ipAddressAssignment: True (DHCP)
+                floatingIPActivated: True
+                ipAddressType: ipv4 / ipv6
+                numberOfIPaddress: 0
+                ipAddress: [ipv4_address_1, ipv4_address_2....]
+                ipAssignmentMethod: static / dhcp
+                L3NetworkName: 
+                L3NetworkType:  [Data-private, Data-public,  Management, Storage]
+  
+deploymentFlavor:                           
+        flavorId:
+        description:
+        vduProfile:
+            vduId: 
+            minNumberOfInstances:
+            maxNumberOfInstances: 
+            localAffinityOrAntiAffinityRule:     
+                affinityOrAntiAffinity:
+                scope:
+            affinityOrAntiAffinityGroupId:     
+        vlProfile:
+            vnfVldId:# mgmt_0 <vld_id>       
+            flavorId:
+                flavorId:         
+                bitRateRequirements:          
+                    Root:
+                    Leaf :
+            qos:      
+                latency: 4ms
+                paketDelayVariation: 10ms
+                packetLossRatio: .7
+
+            localAffinityOrAntiAffinityRule:     
+                affinityOrAntiAffinity:
+                scope: 
+
+            affinityOrAntiAffinityGroupId:   
+
+        instantiationLevel:       
+            levelId: 
+                type: String
+                description: Uniquely identifies a level within the deployment flavor
+
+            description:
+            vduLevel:
+                vduId:  
+                    #type: uuid
+                    #description: Uniquely identifies a VDU
+
+                numberOfInstances: 
+                    #type: integer
+                    #description: Number of instances of VNFC based on this VDU to deploy for this level
+
+            scaleInfo:
+                aspectId:
+                    #type: uint16
+                    #description: Identifier of Scaling aspect
+
+                scaleLevel:
+                    type: uint16
+                    description: Scale level, >=0
+
+        defaultInstantiationLevel:        
+            #type: String
+            #description: Default instantiation level for this deployment flavor. Shall be present if there are multiple "instantiationLevel" entries
+
+        supportedOperation: #{ scaleUpVnf, scaleDownVnf,  scaleInVnf, scaleOutVnf, scaleVnfToLevel, healVnf, updateVnf, upgradeVnf, rollbackVnf, rebootVnf, shutDownVnf, suspendVnf, resumeVnf }    
+            #type: enum
+            
+        vnfLcmOperationsConfiguration:  
+            instantiateVnfOpConfig:   
+                Parameter:
+    
+            scaleVnfOpConfig:     
+                Parameter:
+                verticalScalingSuppoted:
+                scalingByMoreThanOneStepSupported:
+                aspect:
+
+            scaleVnfToLevelOpConfig:      
+                Parameter:
+                arbitraryTargetLevelsSupported:
+
+            healVnfOpConfig:      
+                Parameter:
+                Cause:
+                healVnfOperationSupported:
+
+
+		affinityOrAntiAffinityGroup:      
+            groupId:
+            affinityOrAntiAffinity: 
+            scope:
+
+		monitoringParameter:      
+        
+		scalingAspect:    
+            id:
+            name:
+            description:
+            associatedGroup:
+            maxScaleLevel:
+
+configurableProperties:                      
+        autoScalable:
+        autoHealable:
+        additionalConfigurableProperty:
+
+lifeCycleManagementScript:                  
+        event:
+        script:
+
+elementGroup:                               
+        id:
+        description:
+        Vdu: #[List of VDU IDs]
+        Vld: #[List of VLD IDs]
+
+vnfIndicator:                                
+        Id:
+        Name:
+        IndicatorValue:
+        source:
+        action:
+
+autoAction:                                  
+    
