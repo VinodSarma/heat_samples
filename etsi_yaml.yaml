@@ -18,7 +18,6 @@ vdu:
                 minRequestedAdditionalCapabilityVersion: 
                 preferredRequestedAdditionalCapabilityVersion: 
                 targetPerformanceParameters:    
-				
         virtualMemory:      
                 virtualMemSize:           
                 virtualMemOverSubscriptionPolicy:      
