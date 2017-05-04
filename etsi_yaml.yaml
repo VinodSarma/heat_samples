@@ -1,0 +1,358 @@
+vnfdId:                                     
+vnfdName:                                   
+vnfProvider:                                
+vnfdVersion:                              
+vnfmInfo:                                 
+description:         
+vdu:                                        
+    id :                              
+    description:
+    internalCpd:                               
+        internalVld:                        
+        bitRateRequirement: 
+    virtualComputeDescriptor:                 
+        id:    
+        requestAdditionalCapabilities:       
+                requestedAditionalCapabilityName:     
+                support : 
+                minRequestedAdditionalCapabilityVersion: 
+                preferredRequestedAdditionalCapabilityVersion: 
+                targetPerformanceParameters:    
+				
+        virtualMemory:      
+                virtualMemSize:           
+                virtualMemOverSubscriptionPolicy:      
+                memoryPageSize:        
+
+        virtualCpu:         
+                cpuArchitecture:       
+                numVirtualCpu: 
+                virtualCpuclock:   
+                virtualCpuOversubscriptionPolicy:    
+                virtualCpuPinning: 
+                    cpuPolicy: 
+                    cpuPinningPolicy: 
+                    cpuPinningMap: 
+
+
+
+    virtualStorageDescriptor:                 
+            id: 
+            typeOfStorage: 
+            sizeOfStorage: 
+            rdmaEnabled: 
+            swImageDescriptor: 
+            raidEnabled: 
+            raidLevel:
+            snapshotEnabled:  
+            snapshotFrequency: 
+            volumeBootable: 
+
+    bootOrder:                                 
+        type: 
+        description: 
+        priority: 
+        vsd_id: 
+              
+    swImageDescriptor:                      
+        id:     
+        name:    
+        version:     
+        checksum:     
+        containerFormat:    
+        diskFormat:    
+        minDisk:       
+        minRam:      
+        size:       
+        swImage:     
+        operatingSystem:        
+        supportedVirtualizationEnvironment:   
+        license:
+            licenseData: 
+            licenseDateValidity:       
+            licenseInstanceValidity:       
+            licenseAdditionalParams:       
+
+    nfviConstraint: 
+    
+    monitoringParameter:                      
+            id:   
+            name: 
+            performanceMetric: 
+				
+            computeMetrics:
+                id: 
+                virtualCpuAvailable: 
+                virtualCpuUtilization: 
+                peakCpuUtilization: 
+                averageCpuUtilization: 
+
+            memoryMetrics:
+                memoryActual: 
+                memorySwapIn: 
+                memorySwapOut: 
+                memoryMajorFault: 
+                memoryMinorFault: 
+                memoryUnused: 
+                memoryAvailable: 
+                memoryRss: 
+
+            storageMetrics:
+                id: 
+                readBytes: 
+                readBytesRate: 
+                writeBytes: 
+                writeBytesRate: 
+                readRequests: 
+                readRequestsRate: 
+                writeRequests: 
+                writeRequestsRate: 
+                diskAllocation: 
+
+            networkMetrics:
+                id:
+                packetsIn:
+                packetsOut:
+                bytesIn:
+                bytesOut:
+                averagePacketRate:
+                peakPacketRate:
+                packetsDropped:
+                runtFrames:
+                byte64_byte127Packets:
+                byte128_byte255Packets:
+                byte256_byte511Packets:
+                byte512_byte1024Packets:
+                jumboFrames:
+                averageCallRate:
+                droppedCallRate:
+                peakCallRate:
+                minPacketLatency:
+                averagePacketLatency:
+                maxPacketLatency:
+                minPacketJitter:
+                averagePacketJitter:
+                maxPacketJitter:
+
+
+    vduCredentials: 
+        			
+    hostEpaParameter: 
+        type:
+        description:
+        hostArchitecture: 
+        hostCpuModel: 
+
+    guestEpaParameter: 
+        type:
+        description:
+        numaEnabled: 
+        numaNodeCount: 
+        numaNodeMap: 
+        vswitchNUMAAffinity: 
+        pciNUMAAffinity: 
+
+    NICCapability: 
+
+
+internalVld:                                
+    vldIdentifierId:           
+    connectivityType:
+        layerProtocol: 
+        flowPattern:  
+
+    testAccess: 
+    description: 
+    addressData: 
+        addressType:
+            l2AddressData: 
+                MacAddress: 
+                VLAN: 
+                VNID: 
+            l3AddressData: 
+            
+                ipAddressAssignment: 
+                floatingIPActivated: 
+                ipAddressType: 
+                numberOfIPaddress: 
+                ipAddress: 
+                ipAssignmentMethod: 
+                L3NetworkName: 
+                L3NetworkType:  
+    monitoringParameter:  ----  
+        id: 
+        name:
+        performanceMetric:
+        computeMetrics: 
+            id: 
+            virtualCpuAvailable: 
+            virtualCpuUtilization: 
+            peakCpuUtilization: 
+            averageCpuUtilization: 
+
+        memoryMetrics:
+            memoryActual: 
+            memorySwapIn: 
+            memorySwapOut: 
+            memoryMajorFault: 
+            memoryMinorFault: 
+            memoryUnused: 
+            memoryAvailable: 
+            memoryRss: 
+
+        storageMetrics:
+            id: 
+            readBytes: 
+            readBytesRate: 
+            writeBytes: 
+            writeBytesRate: 
+            readRequests: 
+            readRequestsRate: 
+            writeRequests: 
+            writeRequestsRate: 
+            diskAllocation: 
+
+        networkMetrics:   
+            id: 
+            packetsIn: 
+            packetsOut: 
+            bytesIn: 
+            bytesOut: 
+            averagePacketRate: 
+            peakPacketRate: 
+            packetsDropped: 
+            runtFrames: 
+            byte64_byte127Packets: 
+            byte128_byte255Packets: 
+            byte256_byte511Packets: 
+            byte512_byte1024Packets: 
+            jumboFrames: 
+            averageCallRate: 
+            droppedCallRate: 
+            peakCallRate: 
+            minPacketLatency: 
+            averagePacketLatency: 
+            maxPacketLatency: 
+            minPacketJitter: 
+            averagePacketJitter: 
+            maxPacketJitter: 
+        
+
+
+
+vnfExtCpd:                                  
+    internalVLD:     
+    internalCpd:        
+    addressData: 
+        addressType:
+            l2AddressData: 
+                MacAddress: 
+                VLAN: 
+                VNID: 
+            l3AddressData: 
+            
+                ipAddressAssignment: 
+                floatingIPActivated: 
+                ipAddressType: 
+                numberOfIPaddress: 
+                ipAddress: 
+                ipAssignmentMethod: 
+                L3NetworkName: 
+                L3NetworkType:  
+  
+deploymentFlavor:                           
+        flavorId:
+        description:
+        vduProfile:
+            vduId: 
+            minNumberOfInstances:
+            maxNumberOfInstances: 
+            localAffinityOrAntiAffinityRule:     
+                affinityOrAntiAffinity:
+                scope:
+            affinityOrAntiAffinityGroupId:     
+        vlProfile:
+            vnfVldId:
+            flavorId:
+                flavorId:         
+                bitRateRequirements:          
+                    Root:
+                    Leaf :
+            qos:      
+                latency:
+                paketDelayVariation: 
+                packetLossRatio: 
+
+            localAffinityOrAntiAffinityRule:     
+                affinityOrAntiAffinity:
+                scope: 
+
+            affinityOrAntiAffinityGroupId:   
+
+        instantiationLevel:       
+            levelId: 
+                type: 
+                description: 
+
+            description:
+            vduLevel:
+                vduId:  
+                numberOfInstances: 
+            scaleInfo:
+                aspectId:
+                scaleLevel:
+        defaultInstantiationLevel:        
+        supportedOperation: 
+        vnfLcmOperationsConfiguration:  
+            instantiateVnfOpConfig:   
+                Parameter:
+    
+            scaleVnfOpConfig:     
+                Parameter:
+                verticalScalingSuppoted:
+                scalingByMoreThanOneStepSupported:
+                aspect:
+
+            scaleVnfToLevelOpConfig:      
+                Parameter:
+                arbitraryTargetLevelsSupported:
+
+            healVnfOpConfig:      
+                Parameter:
+                Cause:
+                healVnfOperationSupported:
+		affinityOrAntiAffinityGroup:      
+            groupId:
+            affinityOrAntiAffinity: 
+            scope:
+		monitoringParameter:              
+		scalingAspect:    
+            id:
+            name:
+            description:
+            associatedGroup:
+            maxScaleLevel:
+
+configurableProperties:                      
+        autoScalable:
+        autoHealable:
+        additionalConfigurableProperty:
+
+lifeCycleManagementScript:                  
+        event:
+        script:
+
+elementGroup:                               
+        id:
+        description:
+        Vdu: 
+        Vld:
+
+vnfIndicator:                                
+        Id:
+        Name:
+        IndicatorValue:
+        source:
+        action:
+
+autoAction
