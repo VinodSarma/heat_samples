@@ -1,0 +1,839 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "definitions": {},
+  "properties": {
+    "autoAction": {
+      "type": "string"
+    },
+    "configurableProperties": {
+      "properties": {
+        "additionalConfigurableProperty": {
+          "type": "string"
+        },
+        "autoHealable": {
+          "type": "boolean"
+        },
+        "autoScalable": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "deploymentFlavor": {
+      "properties": {
+        "defaultInstantiationLevel": {
+          "type": "integer"
+        },
+        "description": {
+          "type": "string"
+        },
+        "flavorId": {
+          "type": "string"
+        },
+        "instantiationLevel": {
+          "properties": {
+            "description": {
+              "type": "string"
+            },
+            "levelId": {
+              "type": "integer"
+            },
+            "scaleInfo": {
+              "properties": {
+                "aspectId": {
+                  "type": "string"
+                },
+                "scaleLevel": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "scaleLevel",
+                "aspectId"
+              ],
+              "type": "object"
+            },
+            "vduLevel": {
+              "properties": {
+                "numberOfInstances": {
+                  "type": "integer"
+                },
+                "vduId": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "vduId",
+                "numberOfInstances"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [],
+          "type": "object"
+        },
+        "monitoringParameter": {
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "performanceMetric": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "scalingAspect": {
+          "properties": {
+            "associatedGroup": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "maxScaleLevel": {
+              "type": "integer"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "supportedOperation": {
+          "type": "string",
+          "enum": [
+            "scaleUpVnf",
+            "scaleDownVnf",
+            "scaleInVnf"
+          ]
+        },
+        "vduProfile": {
+          "properties": {
+            "affinityOrAntiAffinityGroupId": {
+              "type": "string",
+              "enum": [
+                "Affinity",
+                "AntiAffinity"
+              ]
+            },
+            "localAffinityOrAntiAffinityRule": {
+              "properties": {
+                "affinityOrAntiAffinity": {
+                  "type": "string"
+                },
+                "scope": {
+                  "type": "string",
+                  "enum": [
+                    "NFVI-PoP",
+                    "Zone",
+                    "ZoneGroup",
+                    "NFVI-node"
+                  ]
+                }
+              },
+              "required": [
+                "affinityOrAntiAffinity",
+                "scope"
+              ],
+              "type": "object"
+            },
+            "maxNumberOfInstances": {
+              "type": "integer"
+            },
+            "minNumberOfInstances": {
+              "type": "integer"
+            },
+            "vduId": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "vduId",
+            "minNumberOfInstances",
+            "maxNumberOfInstances"
+          ],
+          "type": "object"
+        },
+        "vlProfile": {
+          "properties": {
+            "affinityOrAntiAffinityGroupId": {
+              "type": "string",
+              "enum": [
+                "Affinity",
+                "AntiAffinity"
+              ]
+            },
+            "flavorId": {
+              "properties": {
+                "bitRateRequirements": {
+                  "properties": {
+                    "leaf": {
+                      "type": "integer"
+                    },
+                    "root": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [],
+                  "type": "object"
+                },
+                "flavorId": {
+                  "type": "string"
+                },
+                "qos": {
+                  "properties": {
+                    "latency": {
+                      "type": "number"
+                    },
+                    "packetLossRatio": {
+                      "type": "number"
+                    },
+                    "paketDelayVariation": {
+                      "type": "number"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "type": "object"
+            },
+            "localAffinityOrAntiAffinityRule": {
+              "properties": {
+                "affinityOrAntiAffinity": {
+                  "type": "string"
+                },
+                "scope": {
+                  "type": "string",
+                  "enum": [
+                    "NFVI-PoP",
+                    "Zone",
+                    "ZoneGroup",
+                    "NFVI-node"
+                  ]
+                }
+              },
+              "required": [],
+              "type": "object"
+            },
+            "vnfVldId": {
+              "type": "string"
+            }
+          },
+          "required": [],
+          "type": "object"
+        },
+        "vnfLcmOperationsConfiguration": {
+          "properties": {
+            "healVnfOpConfig": {
+              "properties": {
+                "cause": {
+                  "type": "string"
+                },
+                "healVnfOperationSupported": {
+                  "type": "boolean"
+                },
+                "parameter": {
+                  "type": "string"
+                }
+              },
+              "required": [],
+              "type": "object"
+            },
+            "instantiateVnfOpConfig": {
+              "properties": {
+                "parameter": {
+                  "type": "string"
+                }
+              },
+              "required": [],
+              "type": "object"
+            },
+            "scaleVnfOpConfig": {
+              "properties": {
+                "aspect": {
+                  "type": "string"
+                },
+                "parameter": {
+                  "type": "string"
+                },
+                "scalingByMoreThanOneStepSupported": {
+                  "type": "boolean"
+                },
+                "verticalScalingSuppoted": {
+                  "type": "boolean"
+                }
+              },
+              "required": [],
+              "type": "object"
+            },
+            "scaleVnfToLevelOpConfig": {
+              "properties": {
+                "arbitraryTargetLevelsSupported": {
+                  "type": "boolean"
+                },
+                "parameter": {
+                  "type": "string"
+                }
+              },
+              "required": [],
+              "type": "object"
+            }
+          },
+          "required": [],
+          "type": "object"
+        }
+      },
+      "required": [],
+      "type": "object"
+    },
+    "description": {
+      "type": "string"
+    },
+    "elementGroup": {
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "vdu": {
+          "type": "string"
+        },
+        "vld": {
+          "type": "string"
+        }
+      },
+      "required": [],
+      "type": "object"
+    },
+    "lifeCycleManagementScript": {
+      "properties": {
+        "event": {
+          "type": "string"
+        },
+        "script": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "event",
+        "script"
+      ],
+      "type": "object"
+    },
+    "nfviConstraint": {
+      "type": "string"
+    },
+    "vdu": {
+      "items": {
+        "properties": {
+          "bootOrder": {
+            "properties": {
+              "priority": {
+                "type": "integer"
+              },
+              "vsd_id": {
+                "type": "string"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "description": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "internalCpd": {
+            "properties": {
+              "bitRateRequirement": {
+                "type": "string"
+              },
+              "internalVld": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "internalVld"
+            ],
+            "type": "object"
+          },
+          "internalVld": {
+            "properties": {
+              "addressData": {
+                "properties": {
+                  "addressType": {
+                    "type": "string",
+                    "enum": [
+                      "l2AddressData",
+                      "l3AddressData"
+                    ]
+                  },
+                  "l2AddressData": {
+                    "properties": {
+                      "MacAddress": {
+                        "type": "string"
+                      },
+                      "VLAN": {
+                        "type": "integer"
+                      },
+                      "VNID": {
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "l3AddressData": {
+                    "properties": {
+                      "L3NetworkName": {
+                        "type": "string"
+                      },
+                      "L3NetworkType": {
+                        "type": "string"
+                      },
+                      "floatingIPActivated": {
+                        "type": "boolean"
+                      },
+                      "ipAddress": {
+                        "type": "string"
+                      },
+                      "ipAddressAssignment": {
+                        "type": "string"
+                      },
+                      "ipAddressType": {
+                        "type": "string"
+                      },
+                      "ipAssignmentMethod": {
+                        "type": "string"
+                      },
+                      "numberOfIPaddress": {
+                        "type": "integer"
+                      }
+                    },
+                    "required": [
+                      "floatingIPActivated",
+                      "ipAddressAssignment"
+                    ],
+                    "type": "object"
+                  },
+                  "required": [
+                    "l2AddressData",
+                    "l3AddressData"
+                  ],
+                  "type": "object"
+                },
+                "required": [
+                  "addressType"
+                ],
+                "type": "object"
+              },
+              "connectivityType": {
+                "properties": {
+                  "flowPattern": {
+                    "type": "string"
+                  },
+                  "layerProtocol": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "layerProtocol",
+                  "flowPattern"
+                ],
+                "type": "object"
+              },
+              "description": {
+                "type": "string"
+              },
+              "testAccess": {
+                "type": "string",
+                "enum": [
+                  "None",
+                  "Passive",
+                  "Active"
+                ]
+              },
+              "vldIdentifierId": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "vldIdentifierId",
+              "addressData",
+              "connectivityType"
+            ],
+            "type": "object"
+          },
+          "monitoringParameter": {
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "performanceMetric": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "performanceMetric",
+              "id",
+              "name"
+            ],
+            "type": "object"
+          },
+          "swImageDescriptor": {
+            "properties": {
+              "checksum": {
+                "type": "string"
+              },
+              "containerFormat": {
+                "type": "string"
+              },
+              "diskFormat": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "license": {
+                "properties": {
+                  "licenseAdditionalParams": {
+                    "type": "string"
+                  },
+                  "licenseData": {
+                    "type": "string"
+                  },
+                  "licenseDateValidity": {
+                    "type": "string"
+                  },
+                  "licenseInstanceValidity": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "licenseInstanceValidity",
+                  "licenseData",
+                  "licenseDateValidity",
+                  "licenseAdditionalParams"
+                ],
+                "type": "object"
+              },
+              "minDisk": {
+                "type": "integer"
+              },
+              "minRam": {
+                "type": "integer"
+              },
+              "name": {
+                "type": "string"
+              },
+              "operatingSystem": {
+                "type": "string"
+              },
+              "size": {
+                "type": "integer"
+              },
+              "supportedVirtualizationEnvironment": {
+                "type": "string"
+              },
+              "swImage": {
+                "type": "string"
+              },
+              "version": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "swImage",
+              "diskFormat",
+              "name",
+              "license",
+              "checksum",
+              "minDisk",
+              "operatingSystem",
+              "version",
+              "size",
+              "id",
+              "supportedVirtualizationEnvironment",
+              "containerFormat"
+            ],
+            "type": "object"
+          },
+          "virtualComputeDescriptor": {
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "requestAdditionalCapabilities": {
+                "properties": {
+                  "minRequestedAdditionalCapabilityVersion": {
+                    "type": "null"
+                  },
+                  "requestedAditionalCapabilityName": {
+                    "type": "string"
+                  },
+                  "support": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "minRequestedAdditionalCapabilityVersion",
+                  "requestedAditionalCapabilityName",
+                  "support"
+                ],
+                "type": "object"
+              },
+              "virtualCpu": {
+                "properties": {
+                  "cpuArchitecture": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "numVirtualCpu"
+                ],
+                "type": "object"
+              },
+              "virtualMemory": {
+                "properties": {
+                  "memoryPageSize": {
+                    "type": "integer"
+                  },
+                  "virtualMemOverSubscriptionPolicy": {
+                    "type": "boolean"
+                  },
+                  "virtualMemSize": {
+                    "type": "integer"
+                  }
+                },
+                "required": [],
+                "type": "object"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "virtualStorageDescriptor": {
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "raidEnabled": {
+                "type": "boolean"
+              },
+              "raidLevel": {
+                "type": "integer"
+              },
+              "rdmaEnabled": {
+                "type": "boolean"
+              },
+              "sizeOfStorage": {
+                "type": "integer"
+              },
+              "snapshotEnabled": {
+                "type": "boolean"
+              },
+              "snapshotFrequency": {
+                "type": "integer"
+              },
+              "swImageDescriptor": {
+                "type": "string"
+              },
+              "typeOfStorage": {
+                "type": "string"
+              },
+              "volumeBootable": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "sizeOfStorage",
+              "typeOfStorage",
+              "id"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "internalVld",
+          "virtualComputeDescriptor",
+          "virtualMemory",
+          "internalCpd",
+          "id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "vnfExtCpd": {
+      "items": {
+        "properties": {
+          "addressData": {
+            "properties": {
+              "addressType": {
+                "type": "string",
+                "enum": [
+                  "l2AddressData",
+                  "l3AddressData"
+                ]
+              },
+              "l2AddressData": {
+                "properties": {
+                  "MacAddress": {
+                    "type": "string"
+                  },
+                  "VLAN": {
+                    "type": "integer"
+                  },
+                  "VNID": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "MacAddress",
+                  "VLAN",
+                  "VNID"
+                ],
+                "type": "object"
+              },
+              "l3AddressData": {
+                "properties": {
+                  "L3NetworkName": {
+                    "type": "string"
+                  },
+                  "L3NetworkType": {
+                    "type": "string"
+                  },
+                  "floatingIPActivated": {
+                    "type": "boolean"
+                  },
+                  "ipAddress": {
+                    "type": "string"
+                  },
+                  "ipAddressAssignment": {
+                    "type": "string",
+                    "enum": [
+                      "static",
+                      "dynamic"
+                    ]
+                  },
+                  "ipAddressType": {
+                    "type": "string",
+                    "enum": [
+                      "L2AddressData",
+                      "L3AddressData"
+                    ]
+                  },
+                  "ipAssignmentMethod": {
+                    "type": "string",
+                    "enum": [
+                      "static",
+                      "DHCP"
+                    ]
+                  },
+                  "numberOfIPaddress": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "ipAddressType",
+                  "numberOfIPaddress",
+                  "floatingIPActivated",
+                  "ipAddressAssignment",
+                  "L3NetworkType",
+                  "L3NetworkName",
+                  "ipAddress",
+                  "ipAssignmentMethod"
+                ],
+                "type": "object"
+              },
+              "required": [
+                "l2AddressData",
+                "l3AddressData"
+              ],
+              "type": "object"
+            },
+            "required": [
+              "addressType"
+            ],
+            "type": "object"
+          },
+          "internalCpd": {
+            "type": "string"
+          },
+          "internalVLD": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "vnfIndicator": {
+      "properties": {
+        "action": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "indicatorValue": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string",
+          "enum": [
+            "VNF",
+            "EM",
+            "Both"
+          ]
+        }
+      },
+      "required": [
+        "source",
+        "id"
+      ],
+      "type": "object"
+    },
+    "vnfProvider": {
+      "type": "string"
+    },
+    "vnfdId": {
+      "type": "string"
+    },
+    "vnfdName": {
+      "type": "string"
+    },
+    "vnfdVersion": {
+      "type": "integer"
+    },
+    "vnfmInfo": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "vdu",
+    "vnfProvider",
+    "vnfmInfo",
+    "vnfdId",
+    "vnfdVersion",
+    "deploymentFlavor",
+    "vnfExtCpd",
+    "vnfdName"
+  ],
+  "type": "object"
+}
